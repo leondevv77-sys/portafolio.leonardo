@@ -17,12 +17,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);pointer-events:none;z-index:2}
 .bg-ambient{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 60% 50% at 20% 20%,rgba(123,47,255,0.18) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 80% 70%,rgba(180,79,255,0.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 50% 100%,rgba(255,68,247,0.08) 0%,transparent 70%),var(--darker);animation:ambientShift 12s ease-in-out infinite alternate}
 @keyframes ambientShift{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(20deg)}}
+
+/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:rgba(6,1,15,0.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Orbitron',monospace;font-weight:900;font-size:1.1rem;letter-spacing:0.1em;color:var(--neon);text-shadow:var(--glow)}
 .nav-links{display:flex;gap:2rem}
 .nav-links a{text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);transition:color 0.2s,text-shadow 0.2s}
 .nav-links a:hover{color:var(--neon);text-shadow:var(--glow)}
+
 section{position:relative;z-index:3}
+
+/* ── HERO ── */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 5% 40px}
 .hero-tag{font-family:'Space Mono',monospace;font-size:0.75rem;letter-spacing:0.3em;color:var(--neon3);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s 0.2s forwards}
 .hero-name{font-family:'Orbitron',monospace;font-size:clamp(2.8rem,8vw,7rem);font-weight:900;line-height:1;letter-spacing:-0.02em;background:linear-gradient(135deg,#ffffff 0%,#d9b4ff 40%,#b44fff 70%,#7b2fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;opacity:0;animation:fadeUp 0.8s 0.4s forwards}
@@ -42,6 +47,8 @@ section{position:relative;z-index:3}
 .scroll-indicator span{font-size:0.65rem;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase}
 .scroll-line{width:1px;height:50px;background:linear-gradient(var(--neon),transparent);animation:scrollPulse 1.5s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ── ABOUT ── */
 #about{padding:120px 5%;max-width:1100px;margin:0 auto}
 .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:3rem}
 .section-num{font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--neon3);letter-spacing:0.2em}
@@ -64,6 +71,8 @@ section{position:relative;z-index:3}
 .info-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem}
 .info-key{font-size:0.75rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase}
 .info-val{font-size:0.9rem;font-weight:600;color:var(--text)}
+
+/* ── SKILLS ── */
 #skills{padding:100px 5%;max-width:1100px;margin:0 auto}
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:1.8rem;position:relative;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;cursor:none}
@@ -77,30 +86,35 @@ section{position:relative;z-index:3}
 .skill-bar{height:100%;background:linear-gradient(90deg,var(--neon2),var(--neon3));border-radius:2px;box-shadow:0 0 8px var(--neon);animation:barGrow 1.5s ease forwards;transform-origin:left}
 @keyframes barGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .skill-years{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--neon3);letter-spacing:0.15em;margin-top:0.5rem;text-align:right}
+
+/* ── PORTFOLIO ── */
 #portfolio{padding:100px 5%;max-width:1200px;margin:0 auto}
-.upload-zone{border:2px dashed var(--border);border-radius:6px;padding:3rem;text-align:center;margin-bottom:3rem;transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden}
-.upload-zone.drag-over{border-color:var(--neon);background:rgba(180,79,255,0.05)}
-.upload-zone::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(180,79,255,0.08),transparent 60%);pointer-events:none}
-.upload-icon{font-size:3rem;margin-bottom:1rem;filter:drop-shadow(0 0 12px var(--neon))}
-.upload-title{font-family:'Orbitron',monospace;font-size:1rem;font-weight:700;color:var(--neon);margin-bottom:0.5rem}
-.upload-sub{font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
-#fileInput{display:none}
-.btn-upload{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2.5rem;font-family:'Orbitron',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:linear-gradient(135deg,var(--neon2),var(--neon3));color:white;border:none;border-radius:2px;cursor:none;box-shadow:var(--glow);transition:all 0.25s;animation:pulseShadow 2.5s ease-in-out infinite}
-.btn-upload:hover{transform:translateY(-2px);box-shadow:var(--glow-strong)}
-@keyframes pulseShadow{0%,100%{box-shadow:var(--glow)}50%{box-shadow:var(--glow-strong)}}
-.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-.video-card{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all 0.3s;position:relative}
-.video-card:hover{border-color:var(--neon);box-shadow:var(--glow);transform:translateY(-4px)}
-.video-card video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0d0015}
-.video-card-info{padding:1rem}
-.video-card-name{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.video-card-meta{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--neon3);letter-spacing:0.1em}
-.video-card-remove{position:absolute;top:8px;right:8px;width:28px;height:28px;background:rgba(6,1,15,0.8);border:1px solid var(--border);border-radius:50%;color:var(--muted);font-size:0.9rem;display:flex;align-items:center;justify-content:center;cursor:none;transition:all 0.2s;opacity:0}
-.video-card:hover .video-card-remove{opacity:1}
-.video-card-remove:hover{color:var(--neon3);border-color:var(--neon3);box-shadow:0 0 8px var(--neon3)}
-.empty-state{grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)}
-.empty-state-icon{font-size:2.5rem;margin-bottom:1rem;opacity:0.4}
-.empty-state-text{font-size:0.9rem;line-height:1.6}
+
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(500px,1fr));gap:2rem}
+
+.video-card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:all 0.3s;position:relative}
+.video-card:hover{border-color:var(--neon);box-shadow:var(--glow);transform:translateY(-5px)}
+
+/* neon top accent bar */
+.video-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--neon),transparent);z-index:2}
+
+.video-frame-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#0d0015;overflow:hidden}
+.video-frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+
+/* overlay shimmer on hover */
+.video-frame-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(180,79,255,0.08),transparent 60%);pointer-events:none;opacity:0;transition:opacity 0.3s;z-index:1}
+.video-card:hover .video-frame-wrap::after{opacity:1}
+
+.video-card-info{padding:1.1rem 1.3rem 1.3rem}
+.video-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem}
+.video-card-name{font-family:'Orbitron',monospace;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text)}
+.video-card-badge{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--neon3);text-transform:uppercase;background:rgba(255,68,247,0.08);border:1px solid rgba(255,68,247,0.25);padding:2px 8px;border-radius:20px}
+.video-card-meta{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em}
+
+.portfolio-cta{text-align:center;margin-top:3rem}
+.portfolio-cta p{font-size:0.9rem;color:var(--muted);margin-bottom:1.2rem;letter-spacing:0.05em}
+
+/* ── CONTACT ── */
 #contact{padding:100px 5%;max-width:700px;margin:0 auto;text-align:center}
 .contact-sub{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2.5rem}
 .contact-email{font-family:'Orbitron',monospace;font-size:1.1rem;color:var(--neon);text-shadow:var(--glow);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid var(--border);padding-bottom:4px;transition:border-color 0.2s,text-shadow 0.2s}
@@ -108,18 +122,26 @@ section{position:relative;z-index:3}
 .social-row{display:flex;justify-content:center;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
 .social-btn{padding:0.7rem 1.6rem;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;color:var(--neon);border:1px solid var(--border);border-radius:2px;background:transparent;transition:all 0.2s}
 .social-btn:hover{border-color:var(--neon);box-shadow:var(--glow);background:rgba(180,79,255,0.08)}
+
+/* ── FOOTER ── */
 footer{position:relative;z-index:3;border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between}
 .footer-logo{font-family:'Orbitron',monospace;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;color:var(--neon)}
 .footer-copy{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em}
+
+/* ── UTILS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:none}
+
 .glitch{position:relative}
 .glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;right:0;background:linear-gradient(135deg,#ffffff 0%,#d9b4ff 40%,#b44fff 70%,#7b2fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .glitch::before{left:2px;animation:glitch1 4s infinite;clip-path:polygon(0 0,100% 0,100% 33%,0 33%)}
 .glitch::after{left:-2px;animation:glitch2 4s infinite;clip-path:polygon(0 66%,100% 66%,100% 100%,0 100%)}
 @keyframes glitch1{0%,90%,100%{transform:translateX(0);opacity:0}92%{transform:translateX(-3px);opacity:0.8}94%{transform:translateX(3px);opacity:0.8}96%{transform:translateX(0);opacity:0}}
 @keyframes glitch2{0%,90%,100%{transform:translateX(0);opacity:0}93%{transform:translateX(3px);opacity:0.8}95%{transform:translateX(-3px);opacity:0.8}97%{transform:translateX(0);opacity:0}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.video-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr 1fr}.hero-stats{gap:2rem}.nav-links{display:none}footer{flex-direction:column;gap:0.5rem;text-align:center}}
 @media(max-width:480px){.skills-grid{grid-template-columns:1fr}.hero-cta{flex-direction:column;align-items:center}}
 </style>
@@ -129,6 +151,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--border);padding:2r
 <div id="cursor-trail"></div>
 <div class="bg-ambient"></div>
 
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
 <nav>
   <div class="nav-logo">LG/</div>
   <div class="nav-links">
@@ -139,6 +162,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--border);padding:2r
   </div>
 </nav>
 
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 <section id="hero">
   <p class="hero-tag">// Video Editor &amp; Motion Designer</p>
   <h1 class="hero-name glitch" data-text="LEONARDO GODOY">LEONARDO GODOY</h1>
@@ -158,6 +182,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--border);padding:2r
   </div>
 </section>
 
+<!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
 <section id="about">
   <div class="section-header reveal">
     <span class="section-num">01.</span>
@@ -188,6 +213,7 @@ footer{position:relative;z-index:3;border-top:1px solid var(--border);padding:2r
   </div>
 </section>
 
+<!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
 <section id="skills">
   <div style="max-width:1100px;margin:0 auto">
     <div class="section-header reveal">
@@ -220,110 +246,176 @@ footer{position:relative;z-index:3;border-top:1px solid var(--border);padding:2r
       <div class="skill-card reveal" style="transition-delay:0.3s">
         <div class="skill-icon">🎨</div>
         <div class="skill-name">Color Grading</div>
-        <div class="skill-sub">LUTs personalizadas, grading cinematográfico y corrección de color para cualquier look.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:25%"></div></div>
-        <div class="skill-years">1 año · Básico</div>
+        <div class="skill-sub">LUTs personalizados, corrección de color cinematográfica, y consistencia de paleta entre escenas.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        <div class="skill-years">4 años · Avanzado</div>
       </div>
       <div class="skill-card reveal" style="transition-delay:0.4s">
-        <div class="skill-icon">🔊</div>
-        <div class="skill-name">Audio Design</div>
-        <div class="skill-sub">Sincronización musical, diseño de sonido, mezcla de audio y sound effects para edits.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:25%"></div></div>
-        <div class="skill-years">1 año · Básico</div>
+        <div class="skill-icon">🎵</div>
+        <div class="skill-name">Sound Design</div>
+        <div class="skill-sub">Sincronización de audio, diseño sonoro, SFX y mezcla para contenido de alto impacto.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+        <div class="skill-years">4 años · Avanzado</div>
       </div>
       <div class="skill-card reveal" style="transition-delay:0.5s">
         <div class="skill-icon">⚡</div>
-        <div class="skill-name">Motion Sync</div>
-        <div class="skill-sub">Beat sync profesional, transiciones al ritmo, AMVs y edits de alto impacto visual.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:25%"></div></div>
-        <div class="skill-years">1 año · Básico</div>
+        <div class="skill-name">Motion Graphics</div>
+        <div class="skill-sub">Títulos animados, transiciones custom, kinetic typography y gráficos en movimiento.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        <div class="skill-years">5 años · Avanzado</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════ PORTFOLIO ═══════════════════════════ -->
 <section id="portfolio">
   <div class="section-header reveal">
     <span class="section-num">03.</span>
     <h2 class="section-title">Portfolio</h2>
     <div class="section-line"></div>
   </div>
-  <div class="upload-zone reveal" id="dropZone">
-    <div class="upload-icon">📹</div>
-    <div class="upload-title">Subir Videos al Portfolio</div>
-    <div class="upload-sub">Arrastrá y soltá tus videos aquí, o hacé clic en el botón.<br/>Formatos soportados: MP4, MOV, AVI, WEBM</div>
-    <input type="file" id="fileInput" accept="video/*" multiple/>
-    <button class="btn-upload" onclick="document.getElementById('fileInput').click()">▲ &nbsp; Subir Videos</button>
-  </div>
-  <div class="video-grid" id="videoGrid">
-    <div class="empty-state" id="emptyState">
-      <div class="empty-state-icon">🎞️</div>
-      <div class="empty-state-text">Todavía no hay videos en el portfolio.<br/>Subí tus edits usando el botón de arriba.</div>
+
+  <div class="video-grid">
+
+    <!-- VIDEO 1 -->
+    <div class="video-card reveal" style="transition-delay:0s">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/12AC0Sz2zw4CETml7cOBdGscdn24v_5gW/preview"
+          allow="autoplay"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-header">
+          <span class="video-card-name">Edit 01</span>
+          <span class="video-card-badge">Motion · VFX</span>
+        </div>
+        <span class="video-card-meta">// Leonardo Godoy — Portfolio</span>
+      </div>
     </div>
+
+    <!-- VIDEO 2 -->
+    <div class="video-card reveal" style="transition-delay:0.1s">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1OCQPff4V_bxAVwjQafacVjUA8ZaU_rsn/preview"
+          allow="autoplay"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-header">
+          <span class="video-card-name">Edit 02</span>
+          <span class="video-card-badge">Motion · VFX</span>
+        </div>
+        <span class="video-card-meta">// Leonardo Godoy — Portfolio</span>
+      </div>
+    </div>
+
+    <!-- VIDEO 3 -->
+    <div class="video-card reveal" style="transition-delay:0.2s">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1f_QbWJMOlo2_ccI7BJ6Cuyg5SOmoMi9j/preview"
+          allow="autoplay"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-header">
+          <span class="video-card-name">Edit 03</span>
+          <span class="video-card-badge">Motion · VFX</span>
+        </div>
+        <span class="video-card-meta">// Leonardo Godoy — Portfolio</span>
+      </div>
+    </div>
+
+    <!-- VIDEO 4 -->
+    <div class="video-card reveal" style="transition-delay:0.3s">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1-uaGm9bWrCbjqP86vqcYh8v39ACzLTRI/preview"
+          allow="autoplay"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-header">
+          <span class="video-card-name">Edit 04</span>
+          <span class="video-card-badge">Motion · VFX</span>
+        </div>
+        <span class="video-card-meta">// Leonardo Godoy — Portfolio</span>
+      </div>
+    </div>
+
+  </div><!-- /video-grid -->
+
+  <div class="portfolio-cta reveal" style="transition-delay:0.4s">
+    <p>¿Querés ver más trabajos o hablar sobre tu proyecto?</p>
+    <a href="#contact" class="btn btn-primary">Contactar ahora</a>
   </div>
 </section>
 
+<!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
 <section id="contact">
-  <div class="section-header reveal" style="justify-content:center">
+  <div class="section-header reveal">
     <span class="section-num">04.</span>
     <h2 class="section-title">Contacto</h2>
+    <div class="section-line"></div>
   </div>
-  <p class="contact-sub reveal">¿Tenés un proyecto en mente? Hablemos.<br/>Siempre abierto a nuevas colaboraciones y proyectos creativos.</p>
-  <a href="mailto:leon.devv77@gmail.com" class="contact-email reveal">leon.devv77@gmail.com</a>
-  <div class="social-row reveal">
-    <a href="https://wa.me/+5950971632138" target="_blank" class="social-btn" style="background:rgba(37,211,102,0.1);border-color:rgba(37,211,102,0.5);color:#25d366;">💬 WhatsApp</a>
+  <p class="contact-sub reveal">¿Tenés un proyecto en mente? Hablemos. Estoy disponible para proyectos freelance, colaboraciones y trabajo remoto.</p>
+  <a href="mailto:leonardogodoy@email.com" class="contact-email reveal">leonardogodoy@email.com</a>
+  <div class="social-row reveal" style="transition-delay:0.2s">
     <a href="#" class="social-btn">Instagram</a>
     <a href="#" class="social-btn">YouTube</a>
-    <a href="#" class="social-btn">TikTok</a>
+    <a href="#" class="social-btn">LinkedIn</a>
+    <a href="#" class="social-btn">Behance</a>
   </div>
 </section>
 
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer>
-  <div class="footer-logo">LEONARDO GODOY</div>
-  <div class="footer-copy">© 2025 — Hecho con 💜 y neon</div>
+  <div class="footer-logo">LG/</div>
+  <div class="footer-copy">© 2025 Leonardo Godoy · Video Editor</div>
 </footer>
 
 <script>
-const cursor=document.getElementById('cursor');
-const trail=document.getElementById('cursor-trail');
-document.addEventListener('mousemove',e=>{
-  cursor.style.left=e.clientX+'px';
-  cursor.style.top=e.clientY+'px';
-  setTimeout(()=>{trail.style.left=e.clientX+'px';trail.style.top=e.clientY+'px';},60);
+/* ── custom cursor ── */
+const cursor      = document.getElementById('cursor');
+const cursorTrail = document.getElementById('cursor-trail');
+document.addEventListener('mousemove', e => {
+  cursor.style.left      = e.clientX + 'px';
+  cursor.style.top       = e.clientY + 'px';
+  cursorTrail.style.left = e.clientX + 'px';
+  cursorTrail.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('a,button,.skill-card,.video-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2)';cursor.style.boxShadow='0 0 20px #b44fff,0 0 60px rgba(180,79,255,0.6)';});
-  el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';cursor.style.boxShadow='0 0 12px #b44fff,0 0 40px rgba(180,79,255,0.4)';});
+document.querySelectorAll('a, button, .skill-card, .video-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform   = 'translate(-50%,-50%) scale(1.6)';
+    cursor.style.boxShadow   = '0 0 20px #b44fff,0 0 60px rgba(180,79,255,0.6)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform   = 'translate(-50%,-50%) scale(1)';
+    cursor.style.boxShadow   = '0 0 12px #b44fff,0 0 40px rgba(180,79,255,0.4)';
+  });
 });
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-const fileInput=document.getElementById('fileInput');
-const videoGrid=document.getElementById('videoGrid');
-let emptyState=document.getElementById('emptyState');
-const dropZone=document.getElementById('dropZone');
-function formatSize(b){if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB';}
-function addVideo(file){
-  if(!file.type.startsWith('video/'))return;
-  if(emptyState){emptyState.remove();emptyState=null;}
-  const url=URL.createObjectURL(file);
-  const card=document.createElement('div');
-  card.className='video-card reveal';
-  card.innerHTML='<video src="'+url+'" controls preload="metadata"></video><div class="video-card-info"><div class="video-card-name">'+file.name+'</div><div class="video-card-meta">'+formatSize(file.size)+' · '+file.type.split('/')[1].toUpperCase()+'</div></div><button class="video-card-remove" title="Eliminar" onclick="this.closest(\'.video-card\').remove();checkEmpty();">✕</button>';
-  videoGrid.appendChild(card);
-  requestAnimationFrame(()=>card.classList.add('visible'));
-}
-function checkEmpty(){
-  if(!videoGrid.querySelector('.video-card')){
-    const e=document.createElement('div');
-    e.id='emptyState';e.className='empty-state';
-    e.innerHTML='<div class="empty-state-icon">🎞️</div><div class="empty-state-text">Todavía no hay videos en el portfolio.<br/>Subí tus edits usando el botón de arriba.</div>';
-    videoGrid.appendChild(e);emptyState=e;
-  }
-}
-fileInput.addEventListener('change',e=>{[...e.target.files].forEach(addVideo);fileInput.value='';});
-dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
-dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
-dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');[...e.dataTransfer.files].forEach(addVideo);});
+
+/* ── scroll reveal ── */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>

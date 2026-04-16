@@ -471,12 +471,32 @@
       box-shadow: var(--glow);
       transform: translateY(-4px);
     }
-    .video-card-vertical iframe {
+    /* Wrapper que oculta la toolbar de Drive abajo */
+    .video-card-vertical .iframe-wrap {
+      position: relative;
       width: 100%;
-      aspect-ratio: 9 / 16;
-      display: block;
-      border: none;
+      /* 9/16 + espacio extra para ocultar barra Drive (~41px sobre altura total) */
+      padding-bottom: calc(177.78% + 41px);
+      overflow: hidden;
       background: #0d0015;
+    }
+    .video-card-vertical .iframe-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      /* más alto que el contenedor para que la barra quede oculta abajo */
+      height: calc(100% + 41px);
+      border: none;
+    }
+    /* Capa transparente encima: bloquea clics a la barra de Drive (descarga/abrir) */
+    .video-card-vertical .iframe-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50px;
+      z-index: 10;
+      background: transparent;
+      pointer-events: all;
     }
 
     /* Horizontal grid (YouTube) */
@@ -845,19 +865,29 @@
     </div>
     <div class="video-grid-vertical">
       <div class="video-card-vertical reveal">
-        <iframe src="https://drive.google.com/file/d/12AC0Sz2zw4CETml7cOBdGscdn24v_5gW/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/12AC0Sz2zw4CETml7cOBdGscdn24v_5gW/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
       <div class="video-card-vertical reveal" style="transition-delay:0.05s">
-        <iframe src="https://drive.google.com/file/d/1I-PbYK2-GriIi_JuGqqkfx1RbpUxgRv2/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1I-PbYK2-GriIi_JuGqqkfx1RbpUxgRv2/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
       <div class="video-card-vertical reveal" style="transition-delay:0.1s">
-        <iframe src="https://drive.google.com/file/d/1Kvu3JbHXwWg3QB0CucYlvLFsDQjrvssN/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1Kvu3JbHXwWg3QB0CucYlvLFsDQjrvssN/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
       <div class="video-card-vertical reveal" style="transition-delay:0.15s">
-        <iframe src="https://drive.google.com/file/d/1vzh32XXSSSXFpEMJ1Xjdlv9IeHr7OHwA/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1vzh32XXSSSXFpEMJ1Xjdlv9IeHr7OHwA/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
       <div class="video-card-vertical reveal" style="transition-delay:0.2s">
-        <iframe src="https://drive.google.com/file/d/1d1o-KpJoOkCV278L6ZmWK5sjXZsnT0wB/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1d1o-KpJoOkCV278L6ZmWK5sjXZsnT0wB/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
     </div>
 
